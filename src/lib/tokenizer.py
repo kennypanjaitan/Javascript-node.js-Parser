@@ -20,7 +20,7 @@ def writeFile(text, token):
     path = os.getcwd()
     fileWrite = open(path + "/result/result.txt" + text, "w", encoding="utf8")
     for token in tokenHasil:
-        fileWrite.write(token + " ")
+        fileWrite.write(token + "\n")
         print(token)
     fileWrite.close()
 
