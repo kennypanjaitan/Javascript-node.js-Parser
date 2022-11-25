@@ -24,7 +24,7 @@ clear()
 banner()
 print('Reading file...')
 
-CNF = convertToCNF(readCFG('cfg.txt'))
+CNF = mapGrammar(convertToCNF(readCFG('cfg.txt')))
 token = createToken(fileName)
 token = [x.lower() for x in token]
 

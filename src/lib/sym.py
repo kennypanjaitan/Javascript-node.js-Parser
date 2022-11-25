@@ -50,6 +50,7 @@ syms = [
     (r'===', "EQVALTYPE"),
     (r'!==', "NOTEQVALTYPE"),
     (r'\_', "UNDERSCORE"),
+    (r'\+', "SUM"),
     (r'\bor\b', "OR"),
     (r'\band\b', "AND"),
     (r'\bif\b', "IF"),
