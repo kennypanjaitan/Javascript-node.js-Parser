@@ -5,7 +5,7 @@ cek = {}
 # BACA CFG.TXT
 def readCFG(file):
     path = os.getcwd()
-    with open(path + '/' + file) as cfg:
+    with open(path + '/src/lib/' + file) as cfg:
         row = cfg.readlines()
         rowConverted = []
         for i in range(len(row)):
@@ -25,7 +25,7 @@ def printGrammar(grammars):
 # BUAT CNF.TXT
 def writeGrammar(grammars):
     path = os.getcwd()
-    cnf = open(path + '/' + 'cnf.txt', 'w')
+    cnf = open(path + '/src/lib/' + 'cnf.txt', 'w')
     for rule in grammars:
         cnf.write(rule[0])
         cnf.write(" -> ")
@@ -105,10 +105,10 @@ def convertToCNF(grammars):
     
     return result
 
-writeGrammar(convertToCNF(readCFG("cfg.txt")))
+# writeGrammar(convertToCNF(readCFG("cfg.txt")))
 
 def mapGrammar(grammars):
-    length = len(grammars)
+    # length = len(grammars)
     map = {}
     for rule in grammars:
         map[str(rule[0])] = []

@@ -1,16 +1,5 @@
 import os
 
-def readCFG(file):
-    path = os.getcwd()
-    with open(path + "/src/lib/" + file) as cfg:
-        row = cfg.readlines()
-        rowConverted = []
-        for i in range(len(row)):
-            rowConverted.append(row[i].replace("->", "").split())
-
-        
-        return rowConverted
-
 def terminal(grammar):
     terminal_list = [
         "COLON",

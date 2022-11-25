@@ -1,4 +1,5 @@
 syms = [
+    (r'[ \t]+', None),
     (r'[\n]', "NEWLINE"),
     (r'\:', "COLON"),
     (r'\;', "SEMICOLON"),
@@ -48,6 +49,7 @@ syms = [
     (r'>>>', "URS"),
     (r'===', "EQVALTYPE"),
     (r'!==', "NOTEQVALTYPE"),
+    (r'\_', "UNDERSCORE"),
     (r'\bor\b', "OR"),
     (r'\band\b', "AND"),
     (r'\bif\b', "IF"),
