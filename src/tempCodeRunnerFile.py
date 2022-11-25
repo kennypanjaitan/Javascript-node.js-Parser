@@ -1,0 +1,1 @@
+cyk_parse(token, CNF)

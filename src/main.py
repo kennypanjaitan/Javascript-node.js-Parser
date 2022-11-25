@@ -28,5 +28,5 @@ CNF = convertToCNF(readCFG('cfg.txt'))
 token = createToken(fileName)
 token = [x.lower() for x in token]
 
-print(CNF)
+# print(CNF)
 cyk_parse(token, CNF)
