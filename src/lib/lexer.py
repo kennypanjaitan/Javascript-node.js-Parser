@@ -1,12 +1,12 @@
 import sys
 import re
 import os
-from token import syms
+from sym import syms
 
 def lexer(string, syms):
     position = 0
     tokens = [[]]
-    line = 0
+    line = 1
     found = None
     while position < len(string):
         if string[position] == "\n":
@@ -24,13 +24,15 @@ def lexer(string, syms):
                 break
         if not found:
             print("Syntax Error")
+            print(f"Illegal character found at line {line}")
             sys.exit(1)
         else:
             position = found.end(0)
     return tokens   
 
 def CreateToken(string):
-    openfile = open(string, encoding="utf8")
+    path = os.getcwd()
+    openfile = open(path + string, encoding="utf8")
     char = openfile.read()
     openfile.close()
     tokens = lexer(char, syms)
@@ -40,7 +42,7 @@ def CreateToken(string):
         result.append(token)
     
     path = os.getcwd
-    write = open(path + "/result.txt", 'w')
+    write = open(path + "\\result.txt")
     for token in result:
         write.write(str(token) + " ")
     write.close()

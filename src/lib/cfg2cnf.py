@@ -5,7 +5,7 @@ cek = {}
 # BACA CFG.TXT
 def readCFG(file):
     path = os.getcwd()
-    with open(path + "/src/lib/" + file) as cfg:
+    with open(path + '/' + file) as cfg:
         row = cfg.readlines()
         rowConverted = []
         for i in range(len(row)):
@@ -25,7 +25,7 @@ def printGrammar(grammars):
 # BUAT CNF.TXT
 def writeGrammar(grammars):
     path = os.getcwd()
-    cnf = open(path + '/src/lib/' + 'cnf.txt', 'w')
+    cnf = open(path + '/' + 'cnf.txt', 'w')
     for rule in grammars:
         cnf.write(rule[0])
         cnf.write(" -> ")
@@ -38,13 +38,11 @@ def writeGrammar(grammars):
 # MAIN --------------------
 def addGrammar(grammar):
     global cek
-    print(grammar[0])
     if grammar[0] not in cek:
         cek[grammar[0]] = []
     cek[grammar[0]].append(grammar[1:])
 
 def convertToCNF(grammars):
-    print('lol')
     global cek
     unit = []
     result = []
@@ -109,4 +107,14 @@ def convertToCNF(grammars):
 
 writeGrammar(convertToCNF(readCFG("cfg.txt")))
 
-# /Users/kenny_bnp/Desktop/INFORMATICS ROOKIE/TBFO/TUBES/Javascript-node.js-Parser/src/lib/cfg.txt
+def mapGrammar(grammars):
+    length = len(grammars)
+    map = {}
+    for rule in grammars:
+        map[str(rule[0])] = []
+    for rule in grammars:
+        elemen = []
+        for idxrule in range(1, len(rule)):
+            apd = rule[idxrule]
+            elemen.append(apd)
+        map[str(rule[0])].append(elemen)

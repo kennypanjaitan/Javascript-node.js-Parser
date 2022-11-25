@@ -1,4 +1,4 @@
-sym = [
+syms = [
     (r'[\n]', "NEWLINE"),
     (r'\:', "COLON"),
     (r'\;', "SEMICOLON"),

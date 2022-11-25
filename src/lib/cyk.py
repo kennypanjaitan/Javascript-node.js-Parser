@@ -1,17 +1,17 @@
-def cyk_parse(string, input):
+def cyk_parse(string, cnf):
     global table, word
     word = string.split(" ")
     table = [[set([]) for j in range(len(word))] for i in range(len(word))]
 
     for j in range(len(word)):
-        for lhs, rules in input.items():
+        for lhs, rules in cnf.items():
             for rhs in rules:
                 if len(rhs) == 1  & rhs[0] == word[j]:
                     table[j][j].add(lhs)
 
     for i in range(j, -1, -1):
         for k in range(i, j):
-            for lhs, rules in input.items():
+            for lhs, rules in cnf.items():
                 for rhs in rules:
                     if (len(rhs) == 2):
                         if (rhs[0] in table[i][k]):
