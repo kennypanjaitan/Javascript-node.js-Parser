@@ -95,7 +95,6 @@ def terminal(grammar):
         "TYPE",
         "NUM",
         "ID",
-        "SUM",
     ]
     return grammar in terminal_list
 
