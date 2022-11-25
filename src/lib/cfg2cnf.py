@@ -25,7 +25,7 @@ def printGrammar(grammars):
 # BUAT CNF.TXT
 def writeGrammar(grammars):
     path = os.getcwd()
-    cnf = open(path + '/src/lib/' + 'lmao.txt', 'w')
+    cnf = open(path + '/src/lib/' + 'cnf.txt', 'w')
     for rule in grammars:
         cnf.write(rule[0])
         cnf.write(" -> ")
@@ -42,8 +42,6 @@ def addGrammar(grammar):
     if grammar[0] not in cek:
         cek[grammar[0]] = []
     cek[grammar[0]].append(grammar[1:])
-    print(cek)
-    print('====')
 
 def convertToCNF(grammars):
     print('lol')
@@ -54,8 +52,8 @@ def convertToCNF(grammars):
     for grammar in grammars:
         newGrammars = []
 
-        # 1 terminal/variabel
-        if len(grammar) == 2 and not grammar[1][0].islower():
+        # 1 variabel
+        if len(grammar) == 2 and grammar[1][0] != "'":
             unit.append(grammar)
             addGrammar(grammar)
             continue
@@ -83,7 +81,7 @@ def convertToCNF(grammars):
                 newGrammar = [grammar[0]] + value
                 
                 # variabel diubah kalau ada terminal atau len > 2
-                if len(newGrammar) > 2 or newGrammar[1][0].islower():
+                if len(newGrammar) > 2 or newGrammar[1][0] == "'":
                     result.append(newGrammar)
                             
                 # 2 variabel masukin ke unit, final state = jadi terminal
@@ -91,24 +89,24 @@ def convertToCNF(grammars):
                     unit.append(newGrammar)
                 addGrammar(newGrammar)
         # print("====================")
-    print("unit----------------")
-    for i in range(len(unit)):
-        print(unit[i])
+    # print("unit----------------")
+    # for i in range(len(unit)):
+    #     print(unit[i])
     
-    print("newGrammar------------------")
-    for i in range(len(newGrammars)):
-        print(newGrammars[i])
+    # print("newGrammar------------------")
+    # for i in range(len(newGrammars)):
+    #     print(newGrammars[i])
     
-    print("grammars------------------")
-    for i in range(len(grammars)):
-        print(grammars[i])
+    # print("grammars------------------")
+    # for i in range(len(grammars)):
+    #     print(grammars[i])
     
-    print("result------------------")
-    for i in range(len(result)):
-        print(result[i])
+    # print("result------------------")
+    # for i in range(len(result)):
+    #     print(result[i])
     
     return result
 
-writeGrammar(convertToCNF(readCFG("cek.txt")))
+writeGrammar(convertToCNF(readCFG("cfg.txt")))
 
 # /Users/kenny_bnp/Desktop/INFORMATICS ROOKIE/TBFO/TUBES/Javascript-node.js-Parser/src/lib/cfg.txt
