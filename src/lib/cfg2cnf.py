@@ -109,6 +109,6 @@ def convertToCNF(grammars):
     
     return result
 
-writeGrammar(convertToCNF(readCFG("cek.txt")))
+writeGrammar(convertToCNF(readCFG("cfg.txt")))
 
 # /Users/kenny_bnp/Desktop/INFORMATICS ROOKIE/TBFO/TUBES/Javascript-node.js-Parser/src/lib/cfg.txt
